@@ -2,7 +2,7 @@ const {
     matchJavaScript,
     validateEmail,
     // extractNumbers,
-    // replaceWhitespace,
+    replaceWhitespace,
     // validatePhoneNumber,
     // extractHexColors,
     // validateUrl,
@@ -44,19 +44,37 @@ describe('Regex Challenges', () => {
         expect(() => validateEmail(null)).toThrow('Input must be a string');
         expect(() => validateEmail(undefined)).toThrow('Input must be a string');
     });
+
     // test('Extract numbers', () => {
     //     expect(extractNumbers('abc123def456')).toEqual(['123', '456']);
     //     expect(extractNumbers('No numbers here')).toEqual([]);
     // });
-
-    // test('Replace whitespace', () => {
-    //     expect(replaceWhitespace('Hello World')).toBe('Hello_World');
-    //     expect(replaceWhitespace('multiple   spaces')).toBe('multiple_spaces');
+    // test('should throw an error for invalid input types', () => {
+    //     expect(() => extractNumbers(123)).toThrow('Input must be a string');
+    //     expect(() => extractNumbers(null)).toThrow('Input must be a string');
+    //     expect(() => extractNumbers(undefined)).toThrow('Input must be a string');
     // });
+
+    test('Replace whitespace', () => {
+        expect(replaceWhitespace('Hello World')).toBe('Hello_World');
+        expect(replaceWhitespace('multiple   spaces')).toBe('multiple_spaces');
+    });
+
+    test('should throw an error for invalid input types', () => {
+        expect(() => replaceWhitespace(123)).toThrow('Input must be a string');
+        expect(() => replaceWhitespace(null)).toThrow('Input must be a string');
+        expect(() => replaceWhitespace(undefined)).toThrow('Input must be a string');
+    });
 
     // test('Validate phone number', () => {
     //     expect(validatePhoneNumber('(123) 456-7890')).toBe(true);
     //     expect(validatePhoneNumber('(123) 456-7890 ')).toBe(false); // Extra whitespace should fail
+    // });
+
+    // test('should throw an error for invalid input types', () => {
+    //     expect(() => validatePhoneNumber(123)).toThrow('Input must be a string');
+    //     expect(() => validatePhoneNumber(null)).toThrow('Input must be a string');
+    //     expect(() => validatePhoneNumber(undefined)).toThrow('Input must be a string');
     // });
 
     // test('Extract hexadecimal colors', () => {
