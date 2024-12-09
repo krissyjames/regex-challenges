@@ -1,14 +1,13 @@
 // Match a Specific Word
 // Example: "I love JavaScript" -> true; "I love javascript" -> false
 const matchJavaScript = (string) => {
-  if ((typeof string === "string") && (string !== "I love JavaScript")) {
-    return false;
+  if (typeof string === "string") {
+    let pattern = /JavaScript/;
+    let result = pattern.test(string);
+    return result;
   } 
   if (typeof string !== "string") {
     throw new Error('Input must be a string');
-  }
-  else {
-    return true;
   }
 };
 
