@@ -26,14 +26,23 @@ const validateEmail = (string) => {
   }
 };
 
-// // Extract Numbers
-// // Example: "abc123def456" -> ["123", "456"]; "no numbers" -> []
-// const extractNumbers = () => {};
+// Extract Numbers
+// Example: "abc123def456" -> ["123", "456"]; "no numbers" -> []
+// const extractNumbers = (string) => {
+
+// };
 
 // // Replace Whitespace
 // // Example: "Hello World" -> "Hello_World"; "a b c" -> "a_b_c"
-// const replaceWhitespace = () => {};
-
+const replaceWhitespace = (string) => {
+  if ((typeof string === "string") && (string.includes(" ") == true)) {
+    let res = string.replace(/ +/g, "_");
+    return res;
+  } 
+  if (typeof string !== "string") {
+    throw new Error('Input must be a string');
+  }
+};
 // // Validate Phone Number
 // // Example: "(123) 456-7890" -> true; "123-456-7890" -> false
 // const validatePhoneNumber = () => {};
@@ -102,7 +111,7 @@ module.exports = {
   matchJavaScript,
   validateEmail,
   // extractNumbers,
-  // replaceWhitespace,
+  replaceWhitespace,
   // validatePhoneNumber,
   // extractHexColors,
   // validateUrl,
