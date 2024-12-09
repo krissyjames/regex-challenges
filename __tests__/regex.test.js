@@ -1,7 +1,7 @@
 const {
     matchJavaScript,
     validateEmail,
-    // extractNumbers,
+    extractNumbers,
     replaceWhitespace,
     // validatePhoneNumber,
     // extractHexColors,
@@ -45,15 +45,15 @@ describe('Regex Challenges', () => {
         expect(() => validateEmail(undefined)).toThrow('Input must be a string');
     });
 
-    // test('Extract numbers', () => {
-    //     expect(extractNumbers('abc123def456')).toEqual(['123', '456']);
-    //     expect(extractNumbers('No numbers here')).toEqual([]);
-    // });
-    // test('should throw an error for invalid input types', () => {
-    //     expect(() => extractNumbers(123)).toThrow('Input must be a string');
-    //     expect(() => extractNumbers(null)).toThrow('Input must be a string');
-    //     expect(() => extractNumbers(undefined)).toThrow('Input must be a string');
-    // });
+    test('Extract numbers', () => {
+        expect(extractNumbers('abc123def456')).toEqual(['123', '456']);
+        expect(extractNumbers('No numbers here')).toEqual([]);
+    });
+    test('should throw an error for invalid input types', () => {
+        expect(() => extractNumbers(123)).toThrow('Input must be a string');
+        expect(() => extractNumbers(null)).toThrow('Input must be a string');
+        expect(() => extractNumbers(undefined)).toThrow('Input must be a string');
+    });
 
     test('Replace whitespace', () => {
         expect(replaceWhitespace('Hello World')).toBe('Hello_World');
