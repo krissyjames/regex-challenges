@@ -23,16 +23,25 @@ const validateEmail = (string) => {
   if (typeof string !== "string") {
     throw new Error('Input must be a string');
   }
-  else {
-    return true;
-  }
 };
 
 // Extract Numbers
 // Example: "abc123def456" -> ["123", "456"]; "no numbers" -> []
-// const extractNumbers = (string) => {
+const extractNumbers = (string) => {
+  if (typeof string === "string") {
+    let pattern = /(\d+)/g;
+    let result = string.match(pattern);
+    if (result == null) {
+      return [];
+    } else {
+    return result;}
+  }
+   
+  if (typeof string !== "string") {
+    throw new Error('Input must be a string');
+  }
+};
 
-// };
 
 // // Replace Whitespace
 // // Example: "Hello World" -> "Hello_World"; "a b c" -> "a_b_c"
@@ -112,7 +121,7 @@ const replaceWhitespace = (string) => {
 module.exports = {
   matchJavaScript,
   validateEmail,
-  // extractNumbers,
+  extractNumbers,
   replaceWhitespace,
   // validatePhoneNumber,
   // extractHexColors,
