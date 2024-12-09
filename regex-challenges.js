@@ -47,16 +47,24 @@ const extractNumbers = (string) => {
 // // Example: "Hello World" -> "Hello_World"; "a b c" -> "a_b_c"
 const replaceWhitespace = (string) => {
   if ((typeof string === "string") && (string.includes(" ") == true)) {
-    let res = string.replace(/ +/g, "_");
-    return res;
+    let result = string.replace(/ +/g, "_");
+    return result;
   } 
   if (typeof string !== "string") {
     throw new Error('Input must be a string');
   }
 };
-// // Validate Phone Number
-// // Example: "(123) 456-7890" -> true; "123-456-7890" -> false
-// const validatePhoneNumber = () => {};
+// Validate Phone Number
+// Example: "(123) 456-7890" -> true; "123-456-7890" -> false
+const validatePhoneNumber = (string) => {
+  if (typeof string === "string") {
+   let pattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+   let result = pattern.test(string);
+    return result;}
+  if (typeof string !== "string") {
+    throw new Error('Input must be a string');
+  }
+};
 
 // // Extract Hexadecimal Colors
 // // Example: "Colors: #FFF, #123ABC" -> ["#FFF", "#123ABC"]; "no colors" -> []
@@ -123,7 +131,7 @@ module.exports = {
   validateEmail,
   extractNumbers,
   replaceWhitespace,
-  // validatePhoneNumber,
+  validatePhoneNumber,
   // extractHexColors,
   // validateUrl,
   // validateDate,
