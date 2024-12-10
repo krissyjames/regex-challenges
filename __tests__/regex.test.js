@@ -4,7 +4,7 @@ const {
     extractNumbers,
     replaceWhitespace,
     validatePhoneNumber,
-    // extractHexColors,
+    extractHexColors,
     // validateUrl,
     // validateDate,
     // countVowels,
@@ -77,10 +77,16 @@ describe('Regex Challenges', () => {
         expect(() => validatePhoneNumber(undefined)).toThrow('Input must be a string');
     });
 
-    // test('Extract hexadecimal colors', () => {
-    //     expect(extractHexColors('Colors: #FF5733, #fff, and #123abc')).toEqual(['#FF5733', '#fff', '#123abc']);
-    //     expect(extractHexColors('no colors')).toEqual([]);
-    // });
+    test('Extract hexadecimal colors', () => {
+        expect(extractHexColors('Colors: #FF5733, #fff, and #123abc')).toEqual(['#FF5733', '#fff', '#123abc']);
+        expect(extractHexColors('no colors')).toEqual([]);
+    });
+
+    test('should throw an error for invalid input types', () => {
+        expect(() => extractHexColors(123)).toThrow('Input must be a string');
+        expect(() => extractHexColors(null)).toThrow('Input must be a string');
+        expect(() => extractHexColors(undefined)).toThrow('Input must be a string');
+    });
 
     // test('Validate URL', () => {
     //     expect(validateUrl('https://example.com')).toBe(true);

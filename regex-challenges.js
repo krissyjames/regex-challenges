@@ -66,9 +66,22 @@ const validatePhoneNumber = (string) => {
   }
 };
 
-// // Extract Hexadecimal Colors
-// // Example: "Colors: #FFF, #123ABC" -> ["#FFF", "#123ABC"]; "no colors" -> []
-// const extractHexColors = () => {};
+// Extract Hexadecimal Colors
+// Example: "Colors: #FFF, #123ABC" -> ["#FFF", "#123ABC"]; "no colors" -> []
+const extractHexColors = (string) => {
+  if (typeof string === "string") {
+    let pattern = /\#+[\w]{3,6}/g;
+    let result = string.match(pattern);
+      if (result == null) {
+        return []
+      } else {
+        return result;
+      }
+}
+   if (typeof string !== "string") {
+    throw new Error('Input must be a string');
+  }
+};
 
 // // Validate URL
 // // Example: "https://example.com" -> true; "ftp://example.com" -> false
@@ -132,7 +145,7 @@ module.exports = {
   extractNumbers,
   replaceWhitespace,
   validatePhoneNumber,
-  // extractHexColors,
+  extractHexColors,
   // validateUrl,
   // validateDate,
   // countVowels,
